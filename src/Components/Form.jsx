@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Card from "./Card";
 
 const validateUserName = (userName) => {
   const noSpaces= userName.trim();
@@ -52,14 +53,13 @@ const Form = () => {
       };
   return (
     <div className="App">
-    <h3>Por favor completar</h3>
     <form onSubmit={onSubmitForm}>
         <div><input type="text" placeholder="Nombre de usuario" value={userName} onChange={onChangeUserName}/></div>
         <div><input type="text" placeholder="Email" value={userEmail} onChange={onChangeUserEmail}/></div>
         <button type="submit">Enviar</button>    
     </form>
 
-    {formComplete ? <Card userName={userName} banda={userEmail} /> : null}
+    {formComplete ? <div>Gracias {userName}, te contactaremos cuanto antes vía mail</div> : null}
 </div>
   );
 };
